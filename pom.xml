@@ -45,8 +45,8 @@
 
   <properties>
     <slf4j.version>1.7.30</slf4j.version>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
   </properties>
 
   <modules>
@@ -159,19 +159,19 @@
         <version>${slf4j.version}</version>
       </dependency>
       <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>javax.servlet-api</artifactId>
+        <groupId>jakarta.servlet</groupId>
+        <artifactId>jakarta.servlet-api</artifactId>
+        <version>6.0.0</version>
+      </dependency>
+      <dependency>
+          <groupId>jakarta.servlet.jsp</groupId>
+          <artifactId>jakarta.servlet.jsp-api</artifactId>
         <version>3.1.0</version>
       </dependency>
       <dependency>
-        <groupId>javax.servlet.jsp</groupId>
-        <artifactId>javax.servlet.jsp-api</artifactId>
-        <version>2.3.3</version>
-      </dependency>
-      <dependency>
-        <groupId>javax.el</groupId>
-        <artifactId>javax.el-api</artifactId>
-        <version>3.0.0</version>
+          <groupId>jakarta.el</groupId>
+          <artifactId>jakarta.el-api</artifactId>
+        <version>5.0.1</version>
       </dependency>
       <dependency>
         <groupId>junit</groupId>
@@ -207,6 +207,7 @@
               <value>${project.build.testOutputDirectory}</value>
             </property>
           </systemProperties>
+            <argLine>--add-opens java.base/java.lang=ALL-UNNAMED</argLine>
         </configuration>
       </plugin>
       <plugin>
@@ -238,7 +239,7 @@
               <goal>aggregate</goal>
             </goals>
             <configuration>
-              <source>1.8</source>
+              <source>11</source>
             </configuration>
           </execution>
         </executions>

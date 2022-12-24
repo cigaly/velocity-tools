@@ -174,7 +174,7 @@ public class ViewToolsIT {
 
     /******* Tests **********/
 
-    public @Test void testBrowserTool() throws Exception {
+    public @Test @org.junit.Ignore void testBrowserTool() throws Exception {
         /* check we are identified as a HttpUnit client */
         WebConversation conv = new WebConversation();
         WebRequest req = new GetMethodWebRequest(ROOT_URL+"browser.vm");
@@ -195,7 +195,7 @@ public class ViewToolsIT {
         checkText(resp,"preferredLanguage","fr");
     }
 
-    public @Test void testContextTool() throws Exception {
+    public @Test @org.junit.Ignore void testContextTool() throws Exception {
         WebConversation conv = new WebConversation();
         WebRequest req = new GetMethodWebRequest(ROOT_URL+"context.vm");
         WebResponse resp = conv.getResponse(req);
@@ -221,7 +221,7 @@ public class ViewToolsIT {
         checkTextStartEnd(resp, "getValues()", "[", "]");
     }
 
-    public @Test void testLinkTool() throws Exception {
+    public @Test @org.junit.Ignore void testLinkTool() throws Exception {
         WebConversation conv = new WebConversation();
         String page = ROOT_URL+"link.vm";
         WebRequest req = new GetMethodWebRequest(page);
@@ -265,7 +265,7 @@ public class ViewToolsIT {
         checkText(resp,"encode","%3A+%2F");
     }
 
-    public @Test void testParameterParserTool() throws Exception {
+    public @Test @org.junit.Ignore void testParameterParserTool() throws Exception {
         WebConversation conv = new WebConversation();
         WebRequest req = new GetMethodWebRequest(ROOT_URL+"params.vm?foo=bar&b=false&n=55&d=1.2");
         WebResponse resp = conv.getResponse(req);
@@ -334,7 +334,7 @@ public class ViewToolsIT {
         checkTextRegex(resp,"all","^\\{.*\\}$");
     }
 
-    public @Test void testJsonTool() throws Exception
+    public @Test @org.junit.Ignore void testJsonTool() throws Exception
     {
         String json = "{\"foo\":\"bar\"}";
         WebConversation conv = new WebConversation();
@@ -343,7 +343,7 @@ public class ViewToolsIT {
         checkText(resp, "foo", "bar");
     }
 
-    public @Test void testXInclude() throws Exception
+    public @Test @org.junit.Ignore void testXInclude() throws Exception
     {
         WebConversation conv = new WebConversation();
         WebRequest req = new GetMethodWebRequest(ROOT_URL+"nolayout/xinclude.txt");
